@@ -9,8 +9,9 @@ import os
 import sys
 import urllib.request
 
-REPO = "alexbarny22/move_bot"
+REPO = "alexbarny22/blagomed_tools"
 BRANCH = "main"
+FOLDER = "move_bot"          # папка проекта внутри репозитория
 HERE = os.path.dirname(os.path.abspath(__file__))
 PROTECTED = {"config.py", "settings.json", "cache_1c.json", "move_bot.log", "start.bat"}
 
@@ -26,13 +27,13 @@ def token():
 
 def fetch(name, tok):
     if tok:   # приватный репозиторий — через API с ключом
-        url = f"https://api.github.com/repos/{REPO}/contents/{name}?ref={BRANCH}"
+        url = f"https://api.github.com/repos/{REPO}/contents/{FOLDER}/{name}?ref={BRANCH}"
         req = urllib.request.Request(url, headers={
             "Authorization": "Bearer " + tok,
             "Accept": "application/vnd.github.raw",
             "User-Agent": "move_bot-updater"})
     else:     # публичный репозиторий
-        url = f"https://raw.githubusercontent.com/{REPO}/{BRANCH}/{name}"
+        url = f"https://raw.githubusercontent.com/{REPO}/{BRANCH}/{FOLDER}/{name}"
         req = urllib.request.Request(url, headers={"User-Agent": "move_bot-updater",
                                                    "Cache-Control": "no-cache"})
     with urllib.request.urlopen(req, timeout=20) as r:

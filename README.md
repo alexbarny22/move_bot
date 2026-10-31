@@ -8,3 +8,5 @@
 
 Запуск — `start.bat`. Он сам проверяет обновления на GitHub (`update.py`) и запускает бота.
 Логин/пароль 1С — в `config.py` (в репозиторий не попадает; образец — `config.example.py`).
+
+> **Проект переехал** в https://github.com/alexbarny22/blagomed_tools/tree/main/move_bot — установленный бот переключится туда сам при следующем запуске.
