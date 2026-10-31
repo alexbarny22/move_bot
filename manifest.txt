@@ -1,0 +1,6 @@
+# файлы, которые обновляются автоматически
+move_bot.py
+update.py
+setup_odata_move.py
+setup_odata_move.bat
+config.example.py
